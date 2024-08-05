@@ -50,15 +50,7 @@ def normalization_(data, axis):
     standardized_data = (data - minval) / (maxval-minval+epsilon)
     return standardized_data  
 
-# 读取Excel文件中的所有工作表
 
-DATA1=np.load('DATA_lianghe_mulclas.npy',allow_pickle=True)
-
-print(np.max(DATA1))
-#Data_all=np.load('lianghe/Data_all_3curve.npy')
-#Data_all=np.load('../../2.28/data_all/Data_all_3curve.npy')
-Label_all=DATA1[:,-1]
-Data_all=DATA1[:,:-1]
 #Label_all[Label_all==3]=2
 
 # plt.plot(Data_all[:,2])
@@ -75,11 +67,7 @@ def cutdata(data1,label1):
         label0.append(label1[i])
     return np.array(data0),np.array(label0)
 
-fnameunique=np.unique(Data_all[:,0])
-print(fnameunique)
 
-
-Thred=0.5
 def plotwell(fname,Predi,label1):
     N=Predi.shape[0]
     Predi = np.argmax(Predi,axis=1)
@@ -194,20 +182,37 @@ if __name__ == "__main__":
         start_time = time.time()
         parser = argparse.ArgumentParser(description="Process some files and enter interactive mode.")
         parser.add_argument('-m', '--inputmodel', required=True, help='Input DL model file to execute')
-        #parser.add_argument('-p', '--inputpara', required=True, help='Input parameter file to process')
+        parser.add_argument('-d', '--inputdata', required=True, help='Input data file to predict')
 
         args = parser.parse_args()
 
-        fname = args.inputgeo
-        #fnamePara = args.inputpara
+        fname = args.inputmodel
+        fnameInput = args.inputdata
         
     except:
         fname='RESNET'
-
+        fnameInput='DATA_lianghe_mulclas.npy'
+    
+    
+    
     print('Input DL model file:',fname)
+    print('Input data file:',fnameInput)
     
-    
+    # 读取Excel文件中的所有工作表
 
+    DATA1=np.load(fnameInput,allow_pickle=True)
+
+    print(np.max(DATA1))
+    #Data_all=np.load('lianghe/Data_all_3curve.npy')
+    #Data_all=np.load('../../2.28/data_all/Data_all_3curve.npy')
+    Label_all=DATA1[:,-1]
+    Data_all=DATA1[:,:-1]
+    
+    fnameunique=np.unique(Data_all[:,0])
+    print(fnameunique)
+
+
+    Thred=0.5
 
     DATA0=[]
     LABEL0=[]
