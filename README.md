@@ -10,8 +10,8 @@ datafile is the data to be predicted, in npy format.
 
 For example in our code:   python3 predict.py -m RESNET -d DATA_lianghe_mulclas.npy
 
-datafile has following numpy matrix formart with 5 columns:
-Well name, Depth, NR, GG, GR
+datafile has following numpy matrix formart with 6 columns:
+Well name, Depth, NR, GG, GR, labels
 
 Output will be save as in out dir.
 
