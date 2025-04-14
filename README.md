@@ -17,6 +17,8 @@ Output will be save as in out dir.
 
 If you want to train a new model, use the trainCNN.ipynb, trainRESNET.ipynb and trainRF.ipynb.
 
+## Citation
+Shi, Y., Liao, J., Gan, L., & Tang, R. (2024). Lithofacies prediction from well log data based on deep learning: a case study from Southern Sichuan, China. Applied Sciences, 14(18), 8195.
 
 ## License
 This project is licensed under the MIT License. See the `LICENSE` file for more details.
