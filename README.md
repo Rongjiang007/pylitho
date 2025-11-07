@@ -1,7 +1,7 @@
 # pylitho
 Lithofacies prediction from well log data based on Deep learning
 
-If you want to use a pre-trained model for training, use the command:
+If you want to use a pre-trained model for prediction, use the command:
 
 predict.py -m filemodel -d datafile
 
